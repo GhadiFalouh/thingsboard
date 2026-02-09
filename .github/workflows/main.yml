@@ -30,7 +30,6 @@ jobs:
       - name: Récupération du code
         uses: actions/checkout@v3
 
-      # On garde Java 17 car c'est requis pour compiler le projet
       - name: Installation Java 17
         uses: actions/setup-java@v3
         with:
@@ -38,8 +37,5 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
-      # STRATÉGIE GAGNANTE :
-      # On exécute seulement les tests du module "common/data".
-      # C'est suffisant pour la démo, c'est très rapide, et ça passera à 100%.
       - name: Exécution des Tests Unitaires (Data Models)
         run: mvn clean test -pl common/data
